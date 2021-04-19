@@ -27,7 +27,7 @@ public class Main  {
                 number2 = scn.nextDouble();
             }
             System.out.println(printResult(operator,number1,number2));
-            System.out.println("programı sonlandırmaq üçün 'exit' konamdsini daxil edin \n əks halda hərhansi bir simvol daxil et");
+            System.out.println("programı sonlandırmaq üçün 'exit' konamdsini daxil edin \n əks halda hər hansi bir simvol daxil et");
             System.out.print("input comand : ");
             String comand=scn.next();
             if(comand.equals("exit")) break;
@@ -67,7 +67,9 @@ public class Main  {
                     result=number1/number2;
                 break;
                 }
-                else System.out.println("Sifira bolme yoxdur");break;
+                else { System.out.println("Sifira bolme yoxdur");
+                    result=0.0;
+                    break;}
             case "%":
                 result=(number1*number2)/100;
                 break;
