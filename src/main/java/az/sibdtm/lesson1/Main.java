@@ -51,7 +51,7 @@ public class Main  {
 
 
     public static Double operators(String operator,double number1,double number2){
-      Double result = null;
+      double result ;
         switch (operator){
             case "+":
                 result=number1+number2;
