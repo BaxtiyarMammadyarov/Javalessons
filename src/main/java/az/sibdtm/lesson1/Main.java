@@ -13,8 +13,8 @@ public class Main  {
 
         double number2,number1;
         System.out.println("Operatorlar:\n " +
-                           "+:toplam, -:çixma, *:vurma, /:bölmə, \n" +
-                           " %:faiz ,pow:qüvvət ,sqrt:kvd kök,abs:modul \n programi bağlamaq:exit ");
+                           "'+':toplam, '-':çixma, '*':vurma, '/':bölmə, \n" +
+                           " '%':faiz ,'pow':qüvvət ,'sqrt':kvd kök,'abs':modul \n programi bağlamaq:'exit' ");
         do {
             System.out.print("input firstnumber= ");
              number1 = scn.nextDouble();
