@@ -26,7 +26,7 @@ public class Main  {
                 System.out.print("input secondnumber= ");
                 number2 = scn.nextDouble();
             }
-            System.out.println(printResult(operator,number1,number2));
+            printResult(operator,number1,number2);
             System.out.println("programı sonlandırmaq üçün 'exit' konamdsini daxil edin \n əks halda hər hansi bir simvol daxil et");
             System.out.print("input comand : ");
             String comand=scn.next();
@@ -37,7 +37,7 @@ public class Main  {
 
 
 
-     public static String printResult(String operator,double number1,double number2){
+     public static void printResult(String operator,double number1,double number2){
      String result =  operators(operator, number1, number2).toString();
        if(result.length()-result.indexOf(".")==2&&result.charAt(result.length()-1)=='0'){
            result= result.substring(0,result.length()-2);
@@ -45,8 +45,7 @@ public class Main  {
        if(number2==0){
             result=operator+"("+number1+") "+" = "+result;
        }else result=number1+" "+operator+" "+number2+" = "+result;
-
-    return result;
+         System.out.println(result);
     }
 
 
