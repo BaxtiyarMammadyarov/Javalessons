@@ -12,7 +12,7 @@ public class AddElementArray {
         printArray(addlast);
         System.out.println("\n----add first-----");
         printArray(addfirst);
-        System.out.println("\n----add first-----");
+        System.out.println("\n----add center-----");
         printArray(addcenter);
     }
 
@@ -61,6 +61,6 @@ public class AddElementArray {
 
     public static int centerArray(int[] array) {
         if (array.length % 2 == 0) return (array.length / 2) ;
-        else return array.length / 2;
+        else return (array.length-1) / 2;
     }
 }
