@@ -1,6 +1,5 @@
 package az.sibdtm.arrays;
 
-import static az.sibdtm.arrays.ExsistElementExample.exsistArrayByElement;
 
 public class DeleteArrayByElement {
     public static void main(String[] args) {
