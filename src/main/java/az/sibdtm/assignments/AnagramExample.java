@@ -1,9 +1,8 @@
 package az.sibdtm.assignments;
 
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 public class AnagramExample {
     public static void main(String[] args) {
@@ -11,6 +10,8 @@ public class AnagramExample {
         String word2="kurtt";
 
         System.out.println(anagramWord(word1,word2));
+
+
 
     }
 
