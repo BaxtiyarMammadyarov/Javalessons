@@ -89,14 +89,17 @@ insert into assignments(id,name,course_id)
 values(20,'FastAPI',3);
 select * from assignments;
 -- ______________________________________insert students_________________________________
---  burda mysql de gelen hazir cedvelden  istifade etmisem cedveli doldurmaq ucun
 
+
+--  burda mysql de gelen hazir cedvelden  istifade etmisem cedveli doldurmaq ucunteachers
+--  tapsiriqin sonunda hemin ccedvelin skripti var
 insert into students (id ,name,surname,phone,email)
 select
         actor_id-20
      ,first_name
      ,last_name
-     ,concat('055',round(rand()*10000000)),concat(first_name,'_',last_name,'@gmail.com')
+     ,concat('055',round(rand()*10000000))
+     ,concat(first_name,'_',last_name,'@gmail.com')
 from sakila.actor where actor_id between 21 and 71;
 update students set course_id=1 where id<20 ;
 update students set course_id=2 where id>19 and id<35;
@@ -201,6 +204,139 @@ SELECT DATE_ADD(sysdate(),INTERVAL -40 YEAR),DATE_ADD(sysdate(),INTERVAL -18 YEA
 -- ____________________________________studets first_name and last_name the first two letters____________
 
 select substr(name,1,2),substr(surname,1,2)from students;
+
+
+-- ______________________________doldurmaq ucun istifade etdiyim cedvell________________
+-- create table actor as select * from sakila.actor where 1=-1;
+CREATE TABLE actor (
+                       actor_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+                       first_name VARCHAR(45) NOT NULL,
+                       last_name VARCHAR(45) NOT NULL,
+                       last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                       PRIMARY KEY  (actor_id),
+                       KEY idx_actor_last_name (last_name)
+);
+
+INSERT INTO actor
+VALUES (1,'PENELOPE','GUINESS','2006-02-15 04:34:33'),
+       (2,'NICK','WAHLBERG','2006-02-15 04:34:33'),
+       (3,'ED','CHASE','2006-02-15 04:34:33'),
+       (4,'JENNIFER','DAVIS','2006-02-15 04:34:33'),
+       (5,'JOHNNY','LOLLOBRIGIDA','2006-02-15 04:34:33'),
+       (6,'BETTE','NICHOLSON','2006-02-15 04:34:33'),
+       (7,'GRACE','MOSTEL','2006-02-15 04:34:33'),
+       (8,'MATTHEW','JOHANSSON','2006-02-15 04:34:33'),
+       (9,'JOE','SWANK','2006-02-15 04:34:33'),
+       (10,'CHRISTIAN','GABLE','2006-02-15 04:34:33'),
+       (11,'ZERO','CAGE','2006-02-15 04:34:33'),
+       (12,'KARL','BERRY','2006-02-15 04:34:33'),
+       (13,'UMA','WOOD','2006-02-15 04:34:33'),
+       (14,'VIVIEN','BERGEN','2006-02-15 04:34:33'),
+       (15,'CUBA','OLIVIER','2006-02-15 04:34:33'),
+       (16,'FRED','COSTNER','2006-02-15 04:34:33'),
+       (17,'HELEN','VOIGHT','2006-02-15 04:34:33'),
+       (18,'DAN','TORN','2006-02-15 04:34:33'),
+       (19,'BOB','FAWCETT','2006-02-15 04:34:33'),
+       (20,'LUCILLE','TRACY','2006-02-15 04:34:33'),
+       (21,'KIRSTEN','PALTROW','2006-02-15 04:34:33'),
+       (22,'ELVIS','MARX','2006-02-15 04:34:33'),
+       (23,'SANDRA','KILMER','2006-02-15 04:34:33'),
+       (24,'CAMERON','STREEP','2006-02-15 04:34:33'),
+       (25,'KEVIN','BLOOM','2006-02-15 04:34:33'),
+       (26,'RIP','CRAWFORD','2006-02-15 04:34:33'),
+       (27,'JULIA','MCQUEEN','2006-02-15 04:34:33'),
+       (28,'WOODY','HOFFMAN','2006-02-15 04:34:33'),
+       (29,'ALEC','WAYNE','2006-02-15 04:34:33'),
+       (30,'SANDRA','PECK','2006-02-15 04:34:33'),
+       (31,'SISSY','SOBIESKI','2006-02-15 04:34:33'),
+       (32,'TIM','HACKMAN','2006-02-15 04:34:33'),
+       (33,'MILLA','PECK','2006-02-15 04:34:33'),
+       (34,'AUDREY','OLIVIER','2006-02-15 04:34:33'),
+       (35,'JUDY','DEAN','2006-02-15 04:34:33'),
+       (36,'BURT','DUKAKIS','2006-02-15 04:34:33'),
+       (37,'VAL','BOLGER','2006-02-15 04:34:33'),
+       (38,'TOM','MCKELLEN','2006-02-15 04:34:33'),
+       (39,'GOLDIE','BRODY','2006-02-15 04:34:33'),
+       (40,'JOHNNY','CAGE','2006-02-15 04:34:33'),
+       (41,'JODIE','DEGENERES','2006-02-15 04:34:33'),
+       (42,'TOM','MIRANDA','2006-02-15 04:34:33'),
+       (43,'KIRK','JOVOVICH','2006-02-15 04:34:33'),
+       (44,'NICK','STALLONE','2006-02-15 04:34:33'),
+       (45,'REESE','KILMER','2006-02-15 04:34:33'),
+       (46,'PARKER','GOLDBERG','2006-02-15 04:34:33'),
+       (47,'JULIA','BARRYMORE','2006-02-15 04:34:33'),
+       (48,'FRANCES','DAY-LEWIS','2006-02-15 04:34:33'),
+       (49,'ANNE','CRONYN','2006-02-15 04:34:33'),
+       (50,'NATALIE','HOPKINS','2006-02-15 04:34:33'),
+       (51,'GARY','PHOENIX','2006-02-15 04:34:33'),
+       (52,'CARMEN','HUNT','2006-02-15 04:34:33'),
+       (53,'MENA','TEMPLE','2006-02-15 04:34:33'),
+       (54,'PENELOPE','PINKETT','2006-02-15 04:34:33'),
+       (55,'FAY','KILMER','2006-02-15 04:34:33'),
+       (56,'DAN','HARRIS','2006-02-15 04:34:33'),
+       (57,'JUDE','CRUISE','2006-02-15 04:34:33'),
+       (58,'CHRISTIAN','AKROYD','2006-02-15 04:34:33'),
+       (59,'DUSTIN','TAUTOU','2006-02-15 04:34:33'),
+       (60,'HENRY','BERRY','2006-02-15 04:34:33'),
+       (61,'CHRISTIAN','NEESON','2006-02-15 04:34:33'),
+       (62,'JAYNE','NEESON','2006-02-15 04:34:33'),
+       (63,'CAMERON','WRAY','2006-02-15 04:34:33'),
+       (64,'RAY','JOHANSSON','2006-02-15 04:34:33'),
+       (65,'ANGELA','HUDSON','2006-02-15 04:34:33'),
+       (66,'MARY','TANDY','2006-02-15 04:34:33'),
+       (67,'JESSICA','BAILEY','2006-02-15 04:34:33'),
+       (68,'RIP','WINSLET','2006-02-15 04:34:33'),
+       (69,'KENNETH','PALTROW','2006-02-15 04:34:33'),
+       (70,'MICHELLE','MCCONAUGHEY','2006-02-15 04:34:33'),
+       (71,'ADAM','GRANT','2006-02-15 04:34:33'),
+       (72,'SEAN','WILLIAMS','2006-02-15 04:34:33'),
+       (73,'GARY','PENN','2006-02-15 04:34:33'),
+       (74,'MILLA','KEITEL','2006-02-15 04:34:33'),
+       (75,'BURT','POSEY','2006-02-15 04:34:33'),
+       (76,'ANGELINA','ASTAIRE','2006-02-15 04:34:33'),
+       (77,'CARY','MCCONAUGHEY','2006-02-15 04:34:33'),
+       (78,'GROUCHO','SINATRA','2006-02-15 04:34:33'),
+       (79,'MAE','HOFFMAN','2006-02-15 04:34:33'),
+       (80,'RALPH','CRUZ','2006-02-15 04:34:33'),
+       (81,'SCARLETT','DAMON','2006-02-15 04:34:33'),
+       (82,'WOODY','JOLIE','2006-02-15 04:34:33'),
+       (83,'BEN','WILLIS','2006-02-15 04:34:33'),
+       (84,'JAMES','PITT','2006-02-15 04:34:33'),
+       (85,'MINNIE','ZELLWEGER','2006-02-15 04:34:33'),
+       (86,'GREG','CHAPLIN','2006-02-15 04:34:33'),
+       (87,'SPENCER','PECK','2006-02-15 04:34:33'),
+       (88,'KENNETH','PESCI','2006-02-15 04:34:33'),
+       (89,'CHARLIZE','DENCH','2006-02-15 04:34:33'),
+       (90,'SEAN','GUINESS','2006-02-15 04:34:33'),
+       (91,'CHRISTOPHER','BERRY','2006-02-15 04:34:33'),
+       (92,'KIRSTEN','AKROYD','2006-02-15 04:34:33'),
+       (93,'ELLEN','PRESLEY','2006-02-15 04:34:33'),
+       (94,'KENNETH','TORN','2006-02-15 04:34:33'),
+       (95,'DARYL','WAHLBERG','2006-02-15 04:34:33'),
+       (96,'GENE','WILLIS','2006-02-15 04:34:33'),
+       (97,'MEG','HAWKE','2006-02-15 04:34:33'),
+       (98,'CHRIS','BRIDGES','2006-02-15 04:34:33'),
+       (99,'JIM','MOSTEL','2006-02-15 04:34:33'),
+       (100,'SPENCER','DEPP','2006-02-15 04:34:33'),
+       (101,'SUSAN','DAVIS','2006-02-15 04:34:33'),
+       (102,'WALTER','TORN','2006-02-15 04:34:33'),
+       (103,'MATTHEW','LEIGH','2006-02-15 04:34:33'),
+       (104,'PENELOPE','CRONYN','2006-02-15 04:34:33'),
+       (105,'SIDNEY','CROWE','2006-02-15 04:34:33'),
+       (106,'GROUCHO','DUNST','2006-02-15 04:34:33'),
+       (107,'GINA','DEGENERES','2006-02-15 04:34:33'),
+       (108,'WARREN','NOLTE','2006-02-15 04:34:33'),
+       (109,'SYLVESTER','DERN','2006-02-15 04:34:33'),
+       (110,'SUSAN','DAVIS','2006-02-15 04:34:33'),
+       (111,'CAMERON','ZELLWEGER','2006-02-15 04:34:33'),
+       (112,'RUSSELL','BACALL','2006-02-15 04:34:33'),
+       (113,'MORGAN','HOPKINS','2006-02-15 04:34:33'),
+       (114,'MORGAN','MCDORMAND','2006-02-15 04:34:33'),
+       (115,'HARRISON','BALE','2006-02-15 04:34:33'),
+       (116,'DAN','STREEP','2006-02-15 04:34:33'),
+       (117,'RENEE','TRACY','2006-02-15 04:34:33');
+select * from actor;
+
 
 
 
