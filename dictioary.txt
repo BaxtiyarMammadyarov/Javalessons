@@ -1,7 +1,0 @@
-
-class
-for
-while
-if
-else
-equals

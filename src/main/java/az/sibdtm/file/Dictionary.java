@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Dictionary {
     public static void main(String[] args) {
-        File file = new File("dictioary.txt");
+        File file = new File("D:\\IdeaProjects\\Javalessons\\src\\main\\java\\az\\sibdtm\\file\\dictioary.txt");
         try {
             if (!file.exists()) {
                 file.createNewFile();
