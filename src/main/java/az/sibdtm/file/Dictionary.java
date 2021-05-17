@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
 public class Dictionary {
     public static void main(String[] args) {
+        String[] word={"class","if","else","for","while","List","interface","enum","abstract","try","catch","throws","switch","case","return"};
         File file = new File("D:\\IdeaProjects\\Javalessons\\src\\main\\java\\az\\sibdtm\\file\\dictioary.txt");
         try {
             if (!file.exists()) {
@@ -16,6 +16,9 @@ public class Dictionary {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        for (String str:word) {
+               writeFile(file,str);
         }
         Scanner scn = new Scanner(System.in);
         boolean loop = true;
@@ -70,7 +73,6 @@ public class Dictionary {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             writer.newLine();
             writer.write(str);
-            System.out.println("save word");
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
