@@ -33,11 +33,11 @@ public class Dictionary {
                     list.stream().forEach(System.out::println);
                 } else {
                     System.out.println("the word does not exist in the dictionary");
-                    loop = questionAnswer(file, scn,str);
+                    loop = questionAnswer(file, scn, str);
                 }
             } else {
                 System.out.println("the dictionary is empty");
-                loop = questionAnswer(file, scn,str);
+                loop = questionAnswer(file, scn, str);
             }
 
         }
@@ -45,7 +45,7 @@ public class Dictionary {
 
     }
 
-    public static boolean questionAnswer(File file, Scanner scn,String str) {
+    public static boolean questionAnswer(File file, Scanner scn, String str) {
         boolean result = true;
         while (true) {
             System.out.print("Do you want to include it in the dictionary? y / n : ");
