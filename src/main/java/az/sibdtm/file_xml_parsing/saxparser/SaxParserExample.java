@@ -1,5 +1,7 @@
-package az.sibdtm.file_xml_parsing;
+package az.sibdtm.file_xml_parsing.saxparser;
 
+import az.sibdtm.file_xml_parsing.Address;
+import az.sibdtm.file_xml_parsing.Student;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

@@ -1,5 +1,6 @@
-package az.sibdtm.file_xml_parsing;
+package az.sibdtm.file_xml_parsing.saxparser;
 
+import az.sibdtm.file_xml_parsing.Student;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
