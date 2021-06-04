@@ -10,6 +10,8 @@ public class Main {
     public static void main(String[] args)  {
         ConnectionDb conn=new ConnectionDb();
         try {
+            Statement stmt=conn.dbConnection().createStatement();
+            stmt.executeUpdate("create table test123(id integer)");
             boolean answer=false;
             PreparedStatement statement=conn.dbConnection().prepareStatement("select * from students where name=?");
             statement.setString(1,"lllll");

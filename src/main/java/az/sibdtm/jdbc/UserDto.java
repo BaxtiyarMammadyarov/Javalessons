@@ -1,25 +1,27 @@
 package az.sibdtm.jdbc;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-public class UserEntity {
+import org.json.simple.JSONObject;
+
+import java.sql.Date;
 
 
+public class UserDto {
+
+private int id;
     private String name;
     private String surname;
     private String username;
     private String password;
     private String email;
     private String extraEmail;
-    private Set<String> phoneList=new HashSet<>();
+    private JSONObject phoneList;
     private Date date;
-    public UserEntity() {
+    public UserDto() {
     }
 
-    public UserEntity(String name, String surname, String username, String password, String email, String extraEmail, Set<String> phoneList, Date date) {
+    public UserDto(int id, String name, String surname, String username, String password, String email, String extraEmail, JSONObject phoneList, Date date) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.username = username;
@@ -63,12 +65,19 @@ public class UserEntity {
     }
 
 
+    public int getId() {
+        return id;
+    }
 
-    public Set<String> getPhoneList() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public JSONObject getPhoneList() {
         return phoneList;
     }
 
-    public void setPhoneList(Set<String> phoneList) {
+    public void setPhoneList(JSONObject phoneList) {
         this.phoneList = phoneList;
     }
 
@@ -94,5 +103,20 @@ public class UserEntity {
 
     public void setExtraEmail(String extraEmail) {
         this.extraEmail = extraEmail;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", extraEmail='" + extraEmail + '\'' +
+                ", phoneList=" + phoneList +
+                ", date=" + date +
+                '}';
     }
 }

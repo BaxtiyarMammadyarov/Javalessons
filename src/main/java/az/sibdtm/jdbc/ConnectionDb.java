@@ -4,6 +4,7 @@ import java.sql.*;
 
 
 public class ConnectionDb {
+    //jdbc:mysql://localhost:3306/
     private final String className = "com.mysql.cj.jdbc.Driver";
     private final String urldb = "jdbc:mysql://localhost:3306/";
     private final String userName = "root";
@@ -33,7 +34,6 @@ public class ConnectionDb {
     public void disConnection() {
         try {
             conn.close();
-            System.out.println("cinnectin close");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
