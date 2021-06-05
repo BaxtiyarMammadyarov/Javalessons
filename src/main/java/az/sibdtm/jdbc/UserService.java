@@ -8,30 +8,30 @@ import java.util.Scanner;
 public class UserService {
     private static UserRepo repo = new UserRepo();
 
-    public  void login() {
+    public void login() {
         Scanner scn = new Scanner(System.in);
         System.out.print(" input username :");
         String username = scn.next();
         System.out.print("input password :");
         String password = scn.next();
-        if (repo.exsistByUsername(username)&&repo.exsistByPassword(username, password)) {
+        if (repo.exsistByUsername(username) && repo.exsistByPassword(username, password)) {
             System.out.println("daxil oldunuz");
             System.out.println(repo.get(username));
 
         } else {
             System.out.println("username or password is incorrect");
             System.out.println("Do you want to change the password? y/n");
-            String answer=scn.next();
-            if(answer.equals("y")){
-                System.out.println( repo.updateUserPassword());
-            }else {
+            String answer = scn.next();
+            if (answer.equals("y")) {
+                System.out.println(repo.updateUserPassword());
+            } else {
 
             }
         }
     }
 
 
-    public  String signIn() {
+    public String signIn() {
 
         Scanner scn = new Scanner(System.in);
         String answer = "successful registration";
@@ -51,19 +51,9 @@ public class UserService {
         System.out.print(" input username :");
         String username = scn.next();
         entity.setUsername(username);
-
-        while (true) {
-            System.out.print("input password :");
-            String password = scn.next();
-            System.out.print("input repeat password:");
-            String repeatPassword = scn.next();
-            if (password.equals(repeatPassword)) {
-                entity.setPassword(password);
-                break;
-            } else {
-                System.out.println("the entered passwords do not match");
-            }
-        }
+        System.out.print("input password :");
+        String password = scn.next();
+        entity.setPassword(password);
 
         for (int i = 0; i < 3; i++) {
             System.out.print("input phoneNumber " + (i + 1) + " : ");
@@ -84,7 +74,6 @@ public class UserService {
                 answer = "successful registration";
             }
         }
-
         return answer;
     }
 }
