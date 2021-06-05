@@ -5,13 +5,12 @@ package az.sibdtm.jdbc;
 
 import java.util.Scanner;
 
-public class Regist_User {
+public class RegistUser {
+   private static UserService userService=new UserService();
 
-
-    public static void main(String[] args) {
-        UserService userService=new UserService();
-        boolean loop = true;
+    public  void registUser() {
         Scanner scn = new Scanner(System.in);
+        boolean loop = true;
         while (loop) {
             System.out.println("daxil olmaq ucun 1\nqeydiyyatdan kecmek ucun 2\ncixish ucun 0 secin\n");
             System.out.print("seciminiz :");
