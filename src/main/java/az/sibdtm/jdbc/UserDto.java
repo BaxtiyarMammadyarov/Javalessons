@@ -117,7 +117,7 @@ private int id;
 
     @Override
     public String toString() {
-        return "UserEntity{" +
+        return "UserDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
@@ -126,6 +126,7 @@ private int id;
                 ", email='" + email + '\'' +
                 ", extraEmail='" + extraEmail + '\'' +
                 ", phoneList=" + phoneList +
+                ", address='" + address + '\'' +
                 ", date=" + date +
                 '}';
     }
