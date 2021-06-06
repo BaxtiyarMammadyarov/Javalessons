@@ -73,18 +73,19 @@ public class UserRepo {
         try {
             PreparedStatement statement = connectionDb.dbConnection().prepareStatement("Select * from user_table where username=?");
             statement.setString(1, username);
-            ResultSet set = statement.executeQuery();
-            while (set.next()) {
-                user.setId(set.getInt("id"));
-                user.setName(set.getString("firstname"));
-                user.setSurname(set.getString("surname"));
-                user.setUsername(set.getString("username"));
-                user.setEmail(set.getString("email"));
-                user.setExtraEmail(set.getString("extra_email"));
-                user.setPassword(set.getString("password"));
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("firstname"));
+                user.setSurname(resultSet.getString("surname"));
+                user.setUsername(resultSet.getString("username"));
+                user.setEmail(resultSet.getString("email"));
+                user.setExtraEmail(resultSet.getString("extra_email"));
+                user.setPassword(resultSet.getString("password"));
                 JSONParser parser = new JSONParser();
-                user.setPhoneList((JSONObject) parser.parse(set.getString("phones")));
-                user.setDate(set.getDate("create_date"));
+                user.setPhoneList((JSONObject) parser.parse(resultSet.getString("phones")));
+               user.setAddress(resultSet.getString("address"));
+                user.setDate(resultSet.getDate("create_date"));
             }
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
@@ -94,12 +95,12 @@ public class UserRepo {
 
     public void createUser(UserDto entity) {
         ConnectionDb connectionDb = new ConnectionDb();
-        System.out.println("save basladi");
+
         try {
             DatabaseMetaData dbm = connectionDb.dbConnection().getMetaData();
-            System.out.println("dbm yaradildi");
+
             ResultSet tables = dbm.getTables(null, null, "user_table", null);
-            System.out.println(" table yoxlanir");
+
             if (!tables.next()) {
                 Statement stmt = connectionDb.dbConnection().createStatement();
                 stmt.executeUpdate(
@@ -110,14 +111,15 @@ public class UserRepo {
                                 "email char(20) not null unique ," +
                                 "extra_email char(20)," +
                                 "password char(100)  not null,phones json ," +
+                                "address char(10)," +
                                 "create_date date )");
             }
 
             PreparedStatement preparedStatement = connectionDb
                     .dbConnection()
                     .prepareStatement(
-                            "insert into user_table(firstname,surname,username,email,extra_email,password,phones,create_date)" +
-                                    "value (?,?,?,?,?,?,?,?)");
+                            "insert into user_table(firstname,surname,username,email,extra_email,password,phones,address,create_date)" +
+                                    "value (?,?,?,?,?,?,?,?,?)");
 
             preparedStatement.setString(1, entity.getName());
             preparedStatement.setString(2, entity.getSurname());
@@ -126,7 +128,9 @@ public class UserRepo {
             preparedStatement.setString(5, entity.getExtraEmail());
             preparedStatement.setString(6, encoder.passwordEncoder(entity.getPassword()));
             preparedStatement.setString(7, entity.getPhoneList().toJSONString());
-            preparedStatement.setDate(8, entity.getDate());
+            preparedStatement.setString(8, entity.getAddress());
+            preparedStatement.setDate(9, entity.getDate());
+
             preparedStatement.executeUpdate();
 
             connectionDb.disConnection();

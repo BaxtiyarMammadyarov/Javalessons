@@ -1216,30 +1216,34 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>8</Position>
       <DataType>json|0s</DataType>
     </column>
-    <column id="345" parent="295" name="create_date">
+    <column id="345" parent="295" name="address">
       <Position>9</Position>
+      <DataType>char(10)|0s</DataType>
+    </column>
+    <column id="346" parent="295" name="create_date">
+      <Position>10</Position>
       <DataType>date|0s</DataType>
     </column>
-    <index id="346" parent="295" name="username">
+    <index id="347" parent="295" name="username">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="347" parent="295" name="email">
+    <index id="348" parent="295" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="348" parent="295" name="PRIMARY">
+    <key id="349" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="349" parent="295" name="username">
+    <key id="350" parent="295" name="username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>username</UnderlyingIndexName>
     </key>
-    <key id="350" parent="295" name="email">
+    <key id="351" parent="295" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>

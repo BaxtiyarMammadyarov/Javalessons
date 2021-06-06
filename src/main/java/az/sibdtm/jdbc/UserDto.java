@@ -16,11 +16,12 @@ private int id;
     private String email;
     private String extraEmail;
     private JSONObject phoneList;
+    private  String address;
     private Date date;
     public UserDto() {
     }
 
-    public UserDto(int id, String name, String surname, String username, String password, String email, String extraEmail, JSONObject phoneList, Date date) {
+    public UserDto(int id, String name, String surname, String username, String password, String email, String extraEmail, JSONObject phoneList, String address, Date date) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -29,6 +30,7 @@ private int id;
         this.email = email;
         this.extraEmail = extraEmail;
         this.phoneList = phoneList;
+        this.address = address;
         this.date = date;
     }
 
@@ -83,6 +85,14 @@ private int id;
 
     public Date getDate() {
         return date;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setDate(Date date) {

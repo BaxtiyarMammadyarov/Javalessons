@@ -54,6 +54,9 @@ public class UserService {
         System.out.print("input password :");
         String password = scn.next();
         entity.setPassword(password);
+        System.out.print("input address:");
+        String address = scn.next();
+        entity.setAddress(address);
 
         for (int i = 0; i < 3; i++) {
             System.out.print("input phoneNumber " + (i + 1) + " : ");
@@ -61,8 +64,8 @@ public class UserService {
             jsonObject.put("phone " + (i + 1), phoneNumber);
         }
         entity.setPhoneList(jsonObject);
-        Date date = new Date(System.currentTimeMillis());
-        entity.setDate(date);
+
+        entity.setDate(new Date(System.currentTimeMillis()));
         if (repo.exsistByEmail(entity.getEmail())) {
             answer = "email registered,\n" +
                     "Enter another email";
