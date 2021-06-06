@@ -93,7 +93,7 @@ public class UserRepo {
         return user;
     }
 
-    public void createUser(UserDto entity) {
+    public void createUser(UserDto dto) {
         ConnectionDb connectionDb = new ConnectionDb();
 
         try {
@@ -121,15 +121,15 @@ public class UserRepo {
                             "insert into user_table(firstname,surname,username,email,extra_email,password,phones,address,create_date)" +
                                     "value (?,?,?,?,?,?,?,?,?)");
 
-            preparedStatement.setString(1, entity.getName());
-            preparedStatement.setString(2, entity.getSurname());
-            preparedStatement.setString(3, entity.getUsername());
-            preparedStatement.setString(4, entity.getEmail());
-            preparedStatement.setString(5, entity.getExtraEmail());
-            preparedStatement.setString(6, encoder.passwordEncoder(entity.getPassword()));
-            preparedStatement.setString(7, entity.getPhoneList().toJSONString());
-            preparedStatement.setString(8, entity.getAddress());
-            preparedStatement.setDate(9, entity.getDate());
+            preparedStatement.setString(1, dto.getName());
+            preparedStatement.setString(2, dto.getSurname());
+            preparedStatement.setString(3, dto.getUsername());
+            preparedStatement.setString(4, dto.getEmail());
+            preparedStatement.setString(5, dto.getExtraEmail());
+            preparedStatement.setString(6, encoder.passwordEncoder(dto.getPassword()));
+            preparedStatement.setString(7, dto.getPhoneList().toJSONString());
+            preparedStatement.setString(8, dto.getAddress());
+            preparedStatement.setDate(9, dto.getDate());
 
             preparedStatement.executeUpdate();
 
