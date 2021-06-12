@@ -7,14 +7,14 @@ import java.math.BigDecimal;
 @XmlRootElement(name = "Valute")
 public class Valute {
     private String code;
-    private int nominal;
+    private String nominal;
     private String name;
     private BigDecimal value;
 
     public Valute() {
     }
 
-    public Valute(String code, int nominal, String name, BigDecimal value) {
+    public Valute(String code, String nominal, String name, BigDecimal value) {
         this.code = code;
         this.nominal = nominal;
         this.name = name;
@@ -29,11 +29,11 @@ public class Valute {
         this.code = code;
     }
 @XmlElement(name = "Nominal")
-    public int getNominal() {
+    public String getNominal() {
         return nominal;
     }
 
-    public void setNominal(int nominal) {
+    public void setNominal(String nominal) {
         this.nominal = nominal;
     }
     @XmlElement(name = "Name")
